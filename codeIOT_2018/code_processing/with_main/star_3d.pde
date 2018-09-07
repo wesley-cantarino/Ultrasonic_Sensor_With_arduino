@@ -59,6 +59,7 @@ class ChildApplet extends PApplet {
       myPort.bufferUntil(';');
       go = true;
       conect_now = Serial.list()[0];
+      up_DICEs();
     }
   }
 

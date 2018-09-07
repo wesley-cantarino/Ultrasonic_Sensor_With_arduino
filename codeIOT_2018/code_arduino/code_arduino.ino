@@ -2,10 +2,10 @@
 #include <Ultrasonic.h>
 
 /*-----------SERVO-----------*/
-const int Ser1 = 9; //angle alpha //servo cabeca
+const int Ser1 = 9; //angle alpha servo cabeca
 Servo ser1;
 
-const int Ser2 = 10; //angle beta //servo base
+const int Ser2 = 10; //angle beta servo base
 Servo ser2;
 /*---------------------------*/
 
@@ -18,7 +18,14 @@ Ultrasonic ultrasonic(TRIGGER_PIN, ECHO_PIN);
 float dist;
 long times;
 /*---------------------------*/
-//int k = 2;
+
+int down_alfa, down_beta, down_delay = 500;
+boolean down = false;
+
+int beta_min = 30, beta_max = 50;
+int alfa_min = 30, alfa_max = 50;
+/*---------------------------*/
+
 void processing (int alfa, int beta){
   Serial.print("1");
   Serial.print(",");
@@ -35,9 +42,6 @@ void processing (int alfa, int beta){
   //dist = k;
   Serial.print(dist);
   Serial.print(";");
-  /*k += 20;
-  if (k > 400)
-    k = 2;*/
 }
 
 void calcDIST (){
@@ -47,15 +51,16 @@ void calcDIST (){
 }
 
 void go (int alfaAUX, int betaAUX, int tempo){
-  int beta = 0;
+  int beta = beta_min;
 
-  for(int alfa = 0; alfa <= 180; alfa = alfa + alfaAUX){
-    alfa = constrain(alfa, 0, 180);
+  for(int alfa = alfa_min; alfa <= alfa_max; alfa = alfa + alfaAUX){
+    alfa = constrain(alfa, alfa_min, alfa_max);
     ser1.write(alfa);
+
     if(alfa != 90){
-      if(beta <= 0){
-        while(beta <= 180){
-          beta = constrain(beta, 0, 180);
+      if(beta <= beta_min){
+        while(beta <= beta_max){
+          beta = constrain(beta, beta_min, beta_max);
           ser2.write(beta);
           delay(tempo);
 
@@ -66,8 +71,8 @@ void go (int alfaAUX, int betaAUX, int tempo){
         }
       }
       else {
-        while(beta >= 0){
-          beta = constrain(beta, 0, 180);
+        while(beta >= beta_min){
+          beta = constrain(beta, beta_min, beta_max);
           ser2.write(beta);
           delay(tempo);
 
@@ -77,10 +82,6 @@ void go (int alfaAUX, int betaAUX, int tempo){
           beta = beta - betaAUX;
         }
       }
-    }
-
-    while(alfa == 180){
-      //trava ard
     }
   }
 }
@@ -92,6 +93,36 @@ void setup (){
   ser2.attach(Ser2);
 }
 
+void leitura (){
+  if (Serial.available() > 0){
+    delay(100);
+
+    while(Serial.available() > 0){
+      down_alfa = Serial.read();
+      down_beta = Serial.read();
+      //down_delay = Serial.read(); //esta com erro
+
+      down = true;
+    }
+  }
+}
+
 void loop (){
-  go(6, 6, 100);
+  leitura();
+
+  if (down == true){
+    go(down_alfa, down_beta, down_delay);
+    /*down_delay = 1000;
+    ser1.write(down_alfa);
+    delay(down_delay);
+    ser1.write(0);
+    delay(down_delay);
+
+    ser2.write(down_beta);
+    delay(down_delay);
+    ser2.write(0);
+    delay(down_delay);*/
+
+    down = false;
+  }
 }

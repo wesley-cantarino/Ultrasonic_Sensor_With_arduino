@@ -5,7 +5,8 @@ ControlP5 slider_color;
 ControlP5 before;
 ControlP5 conf;
 ControlP5 get_up_dice;
-boolean go_up_dice = false;
+
+int alfa_box, beta_box, delay_box;
 
 int sliderValue = 25;
 boolean display_dist = true;
@@ -60,12 +61,13 @@ void draw (){
 
   /********************************/
   /*a ideia aqui eh se a pessoa
-    clicar em algum botao, estao
+    clicar em algum botao estao
     esconder os outros*/
   /********************************/
   if (play_button_2){
     before.setVisible(true);
     comand_serial_port.setVisible(true);
+
     main_button.setVisible(false);
     conf.setVisible(false);
 
@@ -75,12 +77,7 @@ void draw (){
   else if (play_button_3){
     before.setVisible(true);
     get_up_dice.setVisible(true);
-    if(!go_up_dice)
-      conf.setVisible(true);
-    else {
-      conf.setVisible(false);
-      up_dice_function();
-    }
+    conf.setVisible(true);
 
     comand_serial_port.setVisible(false);
     main_button.setVisible(false);
@@ -93,6 +90,7 @@ void draw (){
     conf.setVisible(false);
     comand_serial_port.setVisible(false);
     get_up_dice.setVisible(false);
+
     main_button.setVisible(true);
 
     image(main_photo, 270, 62);
@@ -158,8 +156,15 @@ public void plus_right (){
   select += 1;
 }
 
-public void up_DICE (){
-  go_up_dice = !go_up_dice;
+public void up_DICEs (){
+  //enviar delta angle para arduino
+  //println(alfa_box, beta_box, delay_box);
+
+  if (go == true){
+    myPort.write(int(alfa_box));
+    myPort.write(int(beta_box));
+    //myPort.write(int(delay_box)); //esta com erro
+  }
 }
 
 void create_button (){
@@ -317,11 +322,41 @@ void create_button (){
       .setColorForeground(#ab25c6)
       .setColorActive(#c432e2);
 
-  get_up_dice.addButton("up_DICE")
+  get_up_dice.addButton("up_DICEs")
              .setLabel("up dice")
-             .setPosition(450, 5)
+             .setPosition(425, 150)
              .setSize(70, 25)
              .setFont(createFont("Arial", 15))
+             .setColorBackground(#7d2090)
+             .setColorForeground(#c432e2)
+             .setColorActive(#4a1255);
+
+  get_up_dice.addSlider("alfa_box")
+             .setCaptionLabel("alfa")
+             .setSize(125, 20)
+             .setPosition(400, 200)
+             .setRange(1, 179)
+             .setValue(6)
+             .setColorBackground(#7d2090)
+             .setColorForeground(#c432e2)
+             .setColorActive(#4a1255);
+
+  get_up_dice.addSlider("beta_box")
+             .setCaptionLabel("beta")
+             .setSize(125, 20)
+             .setPosition(400, 260)
+             .setRange(1, 179)
+             .setValue(6)
+             .setColorBackground(#7d2090)
+             .setColorForeground(#c432e2)
+             .setColorActive(#4a1255);
+
+  get_up_dice.addSlider("delay_box")
+             .setCaptionLabel("delay")
+             .setSize(125, 20)
+             .setPosition(400, 320)
+             .setRange(30, 5000)
+             .setValue(30)
              .setColorBackground(#7d2090)
              .setColorForeground(#c432e2)
              .setColorActive(#4a1255);

@@ -18,11 +18,6 @@ void configuration (){
 
   fill(#924ca1);
   if (((angle_alfa_min > angle_alfa_max) ||
-     ((angle_beta_min > angle_beta_max))) &&
-      (!go_up_dice))
+     ((angle_beta_min > angle_beta_max))))
     text("angle min do not can > angle max", 165, 110);
-}
-
-void up_dice_function (){
-  println("bhee");
 }
