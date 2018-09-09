@@ -22,8 +22,8 @@ long times;
 int down_alfa, down_beta, down_delay = 500;
 boolean down = false;
 
-int beta_min = 30, beta_max = 50;
-int alfa_min = 30, alfa_max = 50;
+int beta_min = 70, beta_max = 110;
+int alfa_min = 0, alfa_max = 45;
 /*---------------------------*/
 
 void processing (int alfa, int beta){
@@ -91,6 +91,27 @@ void setup (){
 
   ser1.attach(Ser1);
   ser2.attach(Ser2);
+
+  //max and min
+  Serial.print("4");
+  Serial.print(",");
+  Serial.print(alfa_min);
+  Serial.print(";");
+
+  Serial.print("5");
+  Serial.print(",");
+  Serial.print(alfa_max);
+  Serial.print(";");
+
+  Serial.print("6");
+  Serial.print(",");
+  Serial.print(beta_min);
+  Serial.print(";");
+
+  Serial.print("7");
+  Serial.print(",");
+  Serial.print(beta_max);
+  Serial.print(";");
 }
 
 void leitura (){
@@ -111,6 +132,11 @@ void loop (){
   leitura();
 
   if (down == true){
+    Serial.print("8");
+    Serial.print(",");
+    Serial.print("1");
+    Serial.print(";");
+
     go(down_alfa, down_beta, down_delay);
     /*down_delay = 1000;
     ser1.write(down_alfa);
@@ -124,5 +150,9 @@ void loop (){
     delay(down_delay);*/
 
     down = false;
+    Serial.print("8");
+    Serial.print(",");
+    Serial.print("0");
+    Serial.print(";");
   }
 }

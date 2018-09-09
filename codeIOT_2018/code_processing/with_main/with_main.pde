@@ -33,6 +33,10 @@ int selectAUX = 0;
 String conect_now = "";
 boolean conect = false;
 boolean go = false;
+
+int alfa_min_ard = 0, alfa_max_ard = 180;
+int beta_min_ard = 0, beta_max_ard = 180;
+boolean porcents = true;
 /********************************/
 
 void settings (){

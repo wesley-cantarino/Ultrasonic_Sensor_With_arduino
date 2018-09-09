@@ -53,6 +53,10 @@ int selectAUX = 0;
 String conect_now = "";
 boolean conect = false;
 boolean go = false;
+
+int alfa_min_ard = 0, alfa_max_ard = 180;
+int beta_min_ard = 0, beta_max_ard = 180;
+boolean porcents = true;
 /********************************/
 
 public void settings (){
@@ -389,7 +393,11 @@ public void configuration (){
 
   rect(575, 5, 20, 375);
 
-  float perct = map(alfa, 0, 180, 0, 375);
+  float perct = map(alfa, alfa_min_ard, alfa_max_ard, 0, 375);
+
+  if(porcents == true)
+    perct = 375;
+
   int perct_100 = PApplet.parseInt(map(perct, 0, 375, 0, 100));
 
   fill(0xffab25c6);
@@ -519,7 +527,17 @@ class ChildApplet extends PApplet {
     }
   }
 
-  public void draw() {
+  public void draw (){
+    if (keyPressed){
+      if ((key == 'r') || (key == 'R')){
+        for(int i = 0; i < 1000; i++){
+          dice[i].x = 0;
+          dice[i].y = 0;
+          dice[i].z = 0;
+        }
+      }
+    }
+
     if(go){
       while(myPort.available() > 0){
         data = myPort.readStringUntil(';');
@@ -557,6 +575,17 @@ class ChildApplet extends PApplet {
           colores[number] = map(dist/*/2*/, 2, 400, 0, 255);
           number++;
         }
+
+        if(tipo == 4)
+          alfa_min_ard = DADO;
+        if(tipo == 5)
+          alfa_max_ard = DADO;
+        if(tipo == 6)
+          beta_min_ard = DADO;
+        if(tipo == 7)
+          beta_max_ard = DADO;
+        if(tipo == 8)
+          porcents = !porcents;
       }
     }
 

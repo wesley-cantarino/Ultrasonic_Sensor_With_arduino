@@ -6,7 +6,11 @@ void configuration (){
 
   rect(575, 5, 20, 375);
 
-  float perct = map(alfa, 0, 180, 0, 375);
+  float perct = map(alfa, alfa_min_ard, alfa_max_ard, 0, 375);
+
+  if(porcents == true)
+    perct = 375;
+
   int perct_100 = int(map(perct, 0, 375, 0, 100));
 
   fill(#ab25c6);

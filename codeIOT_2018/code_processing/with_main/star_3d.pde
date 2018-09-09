@@ -63,7 +63,17 @@ class ChildApplet extends PApplet {
     }
   }
 
-  public void draw() {
+  public void draw (){
+    if (keyPressed){
+      if ((key == 'r') || (key == 'R')){
+        for(int i = 0; i < 1000; i++){
+          dice[i].x = 0;
+          dice[i].y = 0;
+          dice[i].z = 0;
+        }
+      }
+    }
+
     if(go){
       while(myPort.available() > 0){
         data = myPort.readStringUntil(';');
@@ -101,6 +111,17 @@ class ChildApplet extends PApplet {
           colores[number] = map(dist/*/2*/, 2, 400, 0, 255);
           number++;
         }
+
+        if(tipo == 4)
+          alfa_min_ard = DADO;
+        if(tipo == 5)
+          alfa_max_ard = DADO;
+        if(tipo == 6)
+          beta_min_ard = DADO;
+        if(tipo == 7)
+          beta_max_ard = DADO;
+        if(tipo == 8)
+          porcents = !porcents;
       }
     }
 
