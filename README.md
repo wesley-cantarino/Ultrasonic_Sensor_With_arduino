@@ -1,9 +1,9 @@
 ## Ultrasonic Sensor With arduino
 
-Este projeto marca a minha transição entre projetos físicos para software pois depois desse projeto eu passei a interessar muito mais na área de programação. Foi aqui que eu conheci uma das melhores linguagens de programação, [Processing <3.](https://processing.org/) 
+Este projeto marca a minha transição entre projetos físicos para software pois depois desse projeto eu passei a interessar muito mais na área de programação. Foi aqui que eu conheci uma das melhores linguagens de programação, [Processing <3.](https://processing.org/)
 
 
-# 2017
+## 2017
 
 #### Começo
 
@@ -20,5 +20,6 @@ Realmente ficaram muito parecidos:
 * Minha versão
 ![](https://github.com/wesley-cantarino/Ultrasonic_Sensor_With_arduino/blob/master/codeIOT_2017/others_IMG/capa.png)
 
-# 2018
+Foi neste projeto que passei a estudar Processing mais a sério.
 
+## 2018
