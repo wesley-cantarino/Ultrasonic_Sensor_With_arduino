@@ -1,3 +1,11 @@
-- melhorar a visualização.
-V angulo maximo e minimo no arduino e na funcao conf
-estao diferentes
+* ###### Falta fazer documentação decente pois o arquivo codeIOT_2018.pdf está bem fraquinho.
+
+* #### Minha tentativa de criar interface gráfica para usuário :D
+* ![Menu](https://github.com/wesley-cantarino/Ultrasonic_Sensor_With_arduino/blob/master/codeIOT_2018/img/main_img.png)
+
+* ![Configurações]https://github.com/wesley-cantarino/Ultrasonic_Sensor_With_arduino/blob/master/codeIOT_2018/img/config_img.png)
+
+* ![Aba seleção de porta serial](https://github.com/wesley-cantarino/Ultrasonic_Sensor_With_arduino/blob/master/codeIOT_2018/img/serial_img.png)
+
+
+* Certamente esse projeto foi de maior complexidade. Perceba a evolução de um ano para o outro.
