@@ -1,8 +1,9 @@
 * Obs: Falta fazer documentação decente pois o arquivo codeIOT_2018.pdf está bem fraquinho.
 
-* #### Minha tentativa de criar interface gráfica para usuário :D
-
 <hr>
+
+### Minha tentativa de criar interface gráfica para usuário :D
+
 Menu principal:
  
 ![](https://github.com/wesley-cantarino/Ultrasonic_Sensor_With_arduino/blob/master/codeIOT_2018/img/main_black_img.png)
