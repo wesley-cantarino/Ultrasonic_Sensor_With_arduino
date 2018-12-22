@@ -2,6 +2,8 @@
 
 Este projeto marca a minha transição entre projetos físicos para software pois depois desse projeto eu passei a interessar muito mais na área de programação. Foi aqui que eu conheci uma das melhores linguagens de programação, [Processing <3.](https://processing.org/)
 
+Obs: a documentação encontra-se dentro das pastas do respectivo ano.
+
 
 ## 2017
 
