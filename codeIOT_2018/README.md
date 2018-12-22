@@ -1,5 +1,7 @@
 * Obs: Falta fazer documentação decente pois o arquivo codeIOT_2018.pdf está bem fraquinho.
 
+#### [Certificado :D <3](http://codeiot.org.br/certificates/13802e48f1b748a4ace83a3f53ac93c5)
+
 <hr>
 
 ### Minha tentativa de criar interface gráfica para usuário :D
