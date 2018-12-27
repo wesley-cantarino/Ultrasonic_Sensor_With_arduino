@@ -25,3 +25,7 @@ Realmente ficaram muito parecidos:
 Foi neste projeto que passei a estudar Processing mais a sério.
 
 ## 2018
+
+Agora, o foco foi em software. A comunicação sem fio foi retirada e oque antes era em um disco (ou seja, no plano) agora em no IR^3 (ou seja, no espaço tridimensional).
+
+![](https://github.com/wesley-cantarino/Ultrasonic_Sensor_With_arduino/blob/master/codeIOT_2018/esquematico/img.jpeg)
