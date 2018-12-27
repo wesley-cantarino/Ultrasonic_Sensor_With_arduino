@@ -4,6 +4,23 @@
 
 <hr>
 
+### Explicação rápida
+![](https://github.com/wesley-cantarino/Ultrasonic_Sensor_With_arduino/blob/master/codeIOT_2018/esquematico/img.jpeg)
+
+A montagem é simples :)
+
+![](https://github.com/wesley-cantarino/Ultrasonic_Sensor_With_arduino/blob/master/codeIOT_2018/esquematico/img_fritzing.png)
+
+Para quem já estudou mudança de coordenadas na resolução de integrais tripas já sacou que essa montagem é perfeita para coordenadas polares
+
+![](https://github.com/wesley-cantarino/Ultrasonic_Sensor_With_arduino/blob/master/codeIOT_2018/esquematico/Spherical-coordinates.png)
+
+#### Onde
+* r é a distancia medida pelo sensor.
+* teta e fi são os ângulos dos servos
+
+
+
 ### Minha tentativa de criar interface gráfica para usuário :D
 
 Menu principal:
